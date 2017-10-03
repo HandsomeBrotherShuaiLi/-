@@ -1,0 +1,56 @@
+Microsoft (R) Macro Assembler Version 5.00                  7/12/17 20:25:52
+                                                             Page     1-1
+
+
+ 0000				DATA		SEGMENT 
+ 0000  0004[			ARRAY		DB	4 DUP ('?') 
+	   3F			
+			 ]	
+				
+ 0004				DATA		ENDS 
+ 0000				CODE		SEGMENT 
+						ASSUME	CS: CODE, DS: DATA 
+ 0000  B8 ---- R		START:		MOV	AX, DATA 
+ 0003  8E D8					MOV	DS, AX 
+ 0005  C6 06 0000 R 00				MOV	ARRAY, 0	
+					;第一个元素清零 
+ 000A  C6 06 0001 R 00				MOV	ARRAY+1, 0	
+					;第二个元素清零 
+ 000F  C6 06 0002 R 00				MOV	ARRAY+2, 0	
+					;第三个元素清零 
+ 0014  C6 06 0003 R 00				MOV	ARRAY+3, 0	
+					;第四个元素清零 
+ 0019  B8 4C00					MOV	AX, 4C00H 
+ 001C  CD 21					INT	21H 
+ 001E				CODE		ENDS 
+						END	START 
+Microsoft (R) Macro Assembler Version 5.00                  7/12/17 20:25:52
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+CODE . . . . . . . . . . . . . .  	001E	PARA	NONE	
+DATA . . . . . . . . . . . . . .  	0004	PARA	NONE	
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+ARRAY  . . . . . . . . . . . . .  	L BYTE	0000	DATA	Length = 0004
+
+START  . . . . . . . . . . . . .  	L NEAR	0000	CODE
+
+@FILENAME  . . . . . . . . . . .  	TEXT  EXP2		
+
+
+     15 Source  Lines
+     15 Total   Lines
+      6 Symbols
+
+  51172 + 465372 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
